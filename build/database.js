@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.products = exports.users = void 0;
+exports.searchProductByName = exports.getAllProducts = exports.createProduct = exports.getAllUsers = exports.createUser = exports.products = exports.users = void 0;
 exports.users = [
     {
         id: "u001",
@@ -33,3 +33,43 @@ exports.products = [
         imageUrl: "https://picsum.photos/seed/Monitor/400"
     }
 ];
+function createUser(id, name, email, password) {
+    const newUser = {
+        id: id,
+        name: name,
+        email: email,
+        password: password,
+        creatAt: new Date().toISOString()
+    };
+    exports.users.push(newUser);
+    console.log("Cadastro realizado com sucesso");
+}
+exports.createUser = createUser;
+function getAllUsers() {
+    return exports.users.map((user) => { console.log(user); });
+}
+exports.getAllUsers = getAllUsers;
+function createProduct(id, name, price, description, imageUrl) {
+    const newProduct = {
+        id: id,
+        name: name,
+        price: price,
+        description: description,
+        imageUrl: imageUrl
+    };
+    exports.products.push(newProduct);
+    console.log("Produto criado com sucesso");
+}
+exports.createProduct = createProduct;
+function getAllProducts() {
+    return exports.products.map((product) => { console.log(product); });
+}
+exports.getAllProducts = getAllProducts;
+function searchProductByName(name) {
+    exports.products.filter((product) => {
+        if (product.name.toLowerCase().includes(name.toLowerCase())) {
+            console.log(product);
+        }
+    });
+}
+exports.searchProductByName = searchProductByName;

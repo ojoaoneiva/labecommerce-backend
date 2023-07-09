@@ -1,3 +1,4 @@
+import exp from "constants"
 import { Tuser } from "./types"
 import { Tproducts } from "./types"
 
@@ -33,3 +34,43 @@ export const products: Tproducts[] = [
         imageUrl: "https://picsum.photos/seed/Monitor/400"
     }
 ]
+
+export function createUser(id: string, name: string, email: string, password: string){
+    const newUser:Tuser = {
+        id: id,
+        name: name,
+        email: email,
+        password: password,
+        creatAt: new Date().toISOString()
+    }
+    users.push(newUser)
+    console.log("Cadastro realizado com sucesso")
+}
+
+export function getAllUsers() {
+    return users.map((user)=>{console.log(user)})
+}
+
+export function createProduct(id: string, name: string, price: number, description: string, imageUrl: string){
+    const newProduct:Tproducts = {
+        id: id,
+        name: name,
+        price: price,
+        description: description,
+        imageUrl: imageUrl
+    }
+    products.push(newProduct)
+    console.log("Produto criado com sucesso")
+}
+
+export function getAllProducts() {
+    return products.map((product)=>{console.log(product)})
+}
+
+export function searchProductByName(name: string) {
+    products.filter((product)=>{
+        if(product.name.toLowerCase().includes(name.toLowerCase())){
+            console.log(product)
+        }
+    })
+}
