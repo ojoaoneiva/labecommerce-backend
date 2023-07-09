@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"  
+    "start": "tsc && node ./build/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/ojoaoneiva/labecommerce-backend/issues"
   },
-  "homepage": "https://github.com/ojoaoneiva/labecommerce-backend#readme"
+  "homepage": "https://github.com/ojoaoneiva/labecommerce-backend#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "D": "^1.0.0",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.1"
+  }
 }
