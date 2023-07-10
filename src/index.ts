@@ -84,3 +84,48 @@ app.post('/products', (req: Request, res: Response) => {
 
     res.status(201).send("Produto cadastrado com sucesso")
 })
+
+//delete user by id
+app.delete('/users/:id', (req: Request, res: Response) => {
+    const idToDelete = req.params.id
+
+    const userIndex = users.findIndex((user) => user.id === idToDelete)
+
+    if (userIndex >= 0) {
+        users.splice(userIndex, 1)
+    }
+    res.status(200).send("User apagado com sucesso")
+})
+
+//delete product by id
+app.delete('/products/:id', (req: Request, res: Response) => {
+    const idToDelete = req.params.id
+
+    const productIndex = products.findIndex((product) => product.id === idToDelete)
+
+    if (productIndex >= 0) {
+        users.splice(productIndex, 1)
+    }
+    res.status(200).send("Produto apagado com sucesso")
+})
+
+//edit product by id
+app.put('/products/:id', (req: Request, res: Response) => {
+
+    const newId = req.body.id as string | undefined
+    const newName = req.body.name as string | undefined
+    const newPrice = req.body.price as number | undefined
+    const newDescription = req.body.description as string | undefined
+    const newImageUrl = req.body.imageUrl as string | undefined
+
+    const idToEdit = req.params.id
+    const product = products.find((product) => product.id === idToEdit)
+    if (product) {
+        product.id = newId || product.id
+        product.name = newName || product.name
+        product.price = isNaN(Number(newPrice)) ? product.price : newPrice as number
+        product.description = newDescription || product.description
+        product.imageUrl = newImageUrl || product.imageUrl
+    }
+    res.status(200).send("Produto atualizado com sucesso")
+})
