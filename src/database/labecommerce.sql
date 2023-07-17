@@ -167,6 +167,9 @@ CREATE TABLE purchases (
 	total_price REAL NOT NULL,
 	created_at TEXT NOT NULL,
     FOREIGN KEY (buyer) REFERENCES users(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+
 );
 
 -- insert product in purchases
@@ -190,3 +193,23 @@ SELECT
 FROM purchases
 INNER JOIN users
 ON users.id = purchases.buyer;
+
+--create purchases-products TABLE
+CREATE TABLE purchases_products (
+	purchase_id TEXT NOT NULL,
+	product_id TEXT NOT NULL,
+    quantity INTEGER NOT NULL,
+	FOREIGN KEY (purchase_id) REFERENCES purchases (id),
+	FOREIGN KEY (product_id) REFERENCES products (id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
+
+INSERT INTO purchases_products (purchase_id, product_id, quantity)
+VALUES
+	('c003', 'prod001', 1),
+    ('c003', 'prod002', 1),
+    ('c003', 'prod003', 1);
+
+--get purchases-products
+SELECT * FROM purchases_products;
