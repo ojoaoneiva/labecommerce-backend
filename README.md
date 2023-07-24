@@ -6,7 +6,7 @@
 O Projeto Labecommerce-backend consiste em construir uma API para um e-commerce, além de um banco de dados para armazenamento das informações. Os endpoints detalhados na documentação da API possibilitam funcionalidades básicas para um e-commerce, como busca, criação e edição de usuários, produtos e compras e edição de produtos.
 
 ## Objetivos:
-- Criação de um banco de dados não relacional que se conecta com a API
+- Criação de um banco de dados relacional que se conecta com a API
 - Criação de uma API com endpoints que fornece informações e permirte modificações como:
     - Buscar por usuários, todos os produtos e produtos por nome, e todas as compras e compras por id
     - Criar usuários, produtos e compras 
