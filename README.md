@@ -1,6 +1,6 @@
 # labecommerce-backend
 
-# [Documentação da API criada]([https://pokedex-joaoneiva.surge.sh/](https://documenter.getpostman.com/view/27685475/2s93zH2ymH))
+# [Documentação da API criada](https://documenter.getpostman.com/view/27685475/2s93zH2ymH)
 
 ## Sobre o Projeto:
 O Projeto Labecommerce-backend consiste em construir uma API para um e-commerce, além de um banco de dados para armazenamento das informações. Os endpoints detalhados na documentação da API possibilitam funcionalidades básicas para um e-commerce, como busca, criação e edição de usuários, produtos e compras e edição de produtos.
